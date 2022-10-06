@@ -46,5 +46,18 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject);
     }
 
-    
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent<ShipHealth>() != null)
+        {
+            var shipHealth = collision.gameObject.GetComponent<ShipHealth>();
+            StopAllCoroutines();
+            shipHealth.TakeDamage(damage);
+            audioManager.PlaySFX("MissOrHit");
+            Instantiate(explosionPs, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
+    }
+
 }
