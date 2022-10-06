@@ -8,7 +8,7 @@ using UnityEngine.UIElements;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField][Range(0.5f, 10f)] private float moveSpeed = 5;
-    [SerializeField][Range(0.5f, 10f)] private float rotationSpeed = 5;
+    [SerializeField][Range(10f, 100f)] private float rotationSpeed = 20;
 
 
 
@@ -53,6 +53,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void RotateShip(float rotationDirection)
     {
+        transform.Rotate(rotationSpeed * Time.deltaTime * rotationDirection * -transform.forward);
     }
 
     private void MoveShipForward(float forwardDirection)
