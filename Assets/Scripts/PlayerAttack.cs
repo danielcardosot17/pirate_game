@@ -57,7 +57,8 @@ public class PlayerAttack : MonoBehaviour
         {
             audioManager.PlaySFX("Attack");
             FrontalAttack();
-            SideAttack();
+            SideAttack(leftSpawnPoints, -transform.right);
+            SideAttack(rightSpawnPoints, transform.right);
             isReady = false;
             timer = attackReloadTime;
         }
@@ -81,12 +82,18 @@ public class PlayerAttack : MonoBehaviour
         var frontalCannonBall = Instantiate(frontalBullet, frontalSpawnPoint.position, Quaternion.identity);
         var bullet = frontalCannonBall.GetComponent<Bullet>();
         bullet.SetDamage(frontalDamage);
-        bullet.Move(bulletDistance, bulletTime);
+        bullet.Move(transform.up ,bulletDistance, bulletTime);
     }
 
-    private void SideAttack()
+    private void SideAttack(Transform spawnPoints, Vector3 direction)
     {
-
+        foreach(Transform spawnpoint in spawnPoints)
+        {
+            var sideCannonBall = Instantiate(sideBullet, spawnpoint.position, Quaternion.identity);
+            var bullet = sideCannonBall.GetComponent<Bullet>();
+            bullet.SetDamage(sideDamage);
+            bullet.Move(direction, bulletDistance, bulletTime);
+        }
     }
 
     public void DisablePlayerAttack()

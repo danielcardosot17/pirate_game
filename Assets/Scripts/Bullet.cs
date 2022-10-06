@@ -5,14 +5,16 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    private float damage = 0.0f;
-    private float distanceToMove = 0.0f;
-    private float timeToMove = 0.0f;
+    private float damage;
+    private float distanceToMove;
+    private float timeToMove;
+    private Vector3 directionToMove;
 
-    public void Move(float bulletDistance, float bulletTime)
+    public void Move(Vector3 direction, float bulletDistance, float bulletTime)
     {
         distanceToMove = bulletDistance;
         timeToMove = bulletTime;
+        directionToMove = direction;
 
     }
 
