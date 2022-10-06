@@ -17,6 +17,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private Transform frontalSpawnPoint;
     [SerializeField] private Transform leftSpawnPoints;
     [SerializeField] private Transform rightSpawnPoints;
+
     [SerializeField] private GameObject frontalBullet;
     [SerializeField] private GameObject sideBullet;
 
@@ -77,7 +78,10 @@ public class PlayerAttack : MonoBehaviour
 
     private void FrontalAttack()
     {
-
+        var frontalCannonBall = Instantiate(frontalBullet, frontalSpawnPoint.position, Quaternion.identity);
+        var bullet = frontalCannonBall.GetComponent<Bullet>();
+        bullet.SetDamage(frontalDamage);
+        bullet.Move(bulletDistance, bulletTime);
     }
 
     private void SideAttack()

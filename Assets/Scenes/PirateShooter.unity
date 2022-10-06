@@ -31207,13 +31207,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundEffcts:
-  - name: 
-    category: 
-    clip: {fileID: 0}
-    priority: 0
-    volume: 0
-    pitch: 0
-    loop: 0
   - name: Death
     category: 
     clip: {fileID: 8300000, guid: d776742788180cc4a893859c64fe0b36, type: 3}
@@ -31225,19 +31218,12 @@ MonoBehaviour:
     category: 
     clip: {fileID: 8300000, guid: bcb32604285ba974899adfcfd31f6154, type: 3}
     priority: 128
-    volume: 1
+    volume: 0.5
     pitch: 1
     loop: 0
   - name: MissOrHit
     category: 
     clip: {fileID: 8300000, guid: ad6a20cf4737bd240bb6593fdb91f8bd, type: 3}
-    priority: 128
-    volume: 1
-    pitch: 1
-    loop: 0
-  - name: Attack
-    category: 
-    clip: {fileID: 8300000, guid: bcb32604285ba974899adfcfd31f6154, type: 3}
     priority: 128
     volume: 1
     pitch: 1
