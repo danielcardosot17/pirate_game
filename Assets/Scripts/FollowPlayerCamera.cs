@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class FollowPlayerCamera : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private Transform player;
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        
+        transform.position = player.transform.position + Vector3.forward * -10;
     }
 }
