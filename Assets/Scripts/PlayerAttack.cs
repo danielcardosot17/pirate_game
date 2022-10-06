@@ -79,17 +79,17 @@ public class PlayerAttack : MonoBehaviour
 
     private void FrontalAttack()
     {
-        var frontalCannonBall = Instantiate(frontalBullet, frontalSpawnPoint.position, Quaternion.identity);
+        var frontalCannonBall = Instantiate(frontalBullet, frontalSpawnPoint.position, frontalSpawnPoint.rotation);
         var bullet = frontalCannonBall.GetComponent<Bullet>();
         bullet.SetDamage(frontalDamage);
-        bullet.Move(transform.up ,bulletDistance, bulletTime);
+        bullet.Move(transform.up, bulletDistance, bulletTime);
     }
 
     private void SideAttack(Transform spawnPoints, Vector3 direction)
     {
         foreach(Transform spawnpoint in spawnPoints)
         {
-            var sideCannonBall = Instantiate(sideBullet, spawnpoint.position, Quaternion.identity);
+            var sideCannonBall = Instantiate(sideBullet, spawnpoint.position, spawnpoint.rotation);
             var bullet = sideCannonBall.GetComponent<Bullet>();
             bullet.SetDamage(sideDamage);
             bullet.Move(direction, bulletDistance, bulletTime);
