@@ -275,7 +275,7 @@ MonoBehaviour:
   health: 10
   explosionPs: {fileID: 6143086751369115904, guid: e79903f2135d6d041be7f9256e18fe23, type: 3}
   healthBarPrefab: {fileID: 600017588874810132, guid: c2b83e6f07fb00d4789cd3f88ea8a0f6, type: 3}
-  healthBarSpawnPoint: {fileID: 4540955154015182723}
+  offset: {x: 0, y: 1.5, z: 0}
 --- !u!114 &4387452333293489281
 MonoBehaviour:
   m_ObjectHideFlags: 0

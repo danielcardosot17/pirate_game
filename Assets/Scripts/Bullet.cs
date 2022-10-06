@@ -6,7 +6,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] private GameObject explosionPs;
-    private float damage;
+    private int damage;
     private Vector3 positionToMoveTo;
 
     private AudioManager audioManager;
