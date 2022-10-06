@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,7 +14,7 @@ public class GameMaster : MonoBehaviour
     [SerializeField] private TMP_Text sessionNumberText;
 
 
-
+    private SessionTimer sessionTimer;
     private AudioManager audioManager;
     private MenuManager menuManager;
 
@@ -21,6 +22,7 @@ public class GameMaster : MonoBehaviour
     {
         audioManager = FindObjectOfType<AudioManager>();
         menuManager = FindObjectOfType<MenuManager>();
+        sessionTimer = FindObjectOfType<SessionTimer>();
     }
     void Start()
     {
@@ -33,7 +35,11 @@ public class GameMaster : MonoBehaviour
         
     }
 
-
+    public void StartGame()
+    {
+        sessionTimer.SetTimerLength(sessionTimeInSeconds);
+        sessionTimer.StartTimer();
+    }
 
     public void ChangeTime()
     {
@@ -42,5 +48,10 @@ public class GameMaster : MonoBehaviour
     public void ChangeNumberText()
     {
         sessionNumberText.text = (sessionTimeInSeconds/60f).ToString("N1");
+    }
+
+    public void EndGame()
+    {
+
     }
 }
