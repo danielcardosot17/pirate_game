@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -28,5 +29,15 @@ public class EnemySpawner : MonoBehaviour
     public void ChangeNumberText()
     {
         spawnNumberText.text = spawnTime.ToString("N1");
+    }
+
+    public void DisableEnemyActions()
+    {
+
+    }
+
+    public void EnableEnemyActions()
+    {
+
     }
 }

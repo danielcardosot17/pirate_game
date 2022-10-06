@@ -1288,7 +1288,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1.5
+  m_text: 3.0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 122bdcbaf1cac9c41be3fb58017d4d56, type: 2}
   m_sharedMaterial: {fileID: 425939743043637930, guid: 122bdcbaf1cac9c41be3fb58017d4d56, type: 2}
@@ -1315,7 +1315,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35
+  m_fontSize: 28.45
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1714,9 +1714,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f7af6f0d5dbdcc4986bd163abf76b73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sessionTimeInSeconds: 60
-  sessionTimeSlider: {fileID: 1405300340}
-  sessionNumberText: {fileID: 303388619}
 --- !u!114 &433835422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1729,6 +1726,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe5d5f6cc4e734d44b4e7e03269404d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sessionTimeInSeconds: 180
+  sessionTimeSlider: {fileID: 1405300340}
+  sessionNumberText: {fileID: 303388619}
   timerText: {fileID: 1177972280}
 --- !u!1 &485015629
 GameObject:
@@ -1763,8 +1763,8 @@ RectTransform:
   m_Father: {fileID: 1464861785}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 25, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -26234,7 +26234,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -27709,7 +27709,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0433f0c080842da46b6eb542d47b46bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnTime: 5
+  spawnTime: 10
   shooterSpawnCount: 3
   chaserSpawnCount: 3
   spawnTimeSlider: {fileID: 1628368626}
@@ -27805,8 +27805,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 433835421}
-        m_TargetAssemblyTypeName: GameMaster, Assembly-CSharp
+      - m_Target: {fileID: 433835422}
+        m_TargetAssemblyTypeName: SessionTimer, Assembly-CSharp
         m_MethodName: ChangeTime
         m_Mode: 1
         m_Arguments:
@@ -27817,8 +27817,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 433835421}
-        m_TargetAssemblyTypeName: GameMaster, Assembly-CSharp
+      - m_Target: {fileID: 433835422}
+        m_TargetAssemblyTypeName: SessionTimer, Assembly-CSharp
         m_MethodName: ChangeNumberText
         m_Mode: 1
         m_Arguments:
@@ -27900,7 +27900,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -28006,8 +28006,8 @@ RectTransform:
   m_Father: {fileID: 1970817582}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 25, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -28304,7 +28304,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1640534322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30461,7 +30461,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 565486d1f5d246141b559a2ea55747d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundEffcts: []
+  soundEffcts:
+  - name: 
+    category: 
+    clip: {fileID: 0}
+    priority: 0
+    volume: 0
+    pitch: 0
+    loop: 0
+  - name: Death
+    category: 
+    clip: {fileID: 8300000, guid: d776742788180cc4a893859c64fe0b36, type: 3}
+    priority: 128
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: Attack
+    category: 
+    clip: {fileID: 8300000, guid: bcb32604285ba974899adfcfd31f6154, type: 3}
+    priority: 128
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: MissOrHit
+    category: 
+    clip: {fileID: 8300000, guid: ad6a20cf4737bd240bb6593fdb91f8bd, type: 3}
+    priority: 128
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: Attack
+    category: 
+    clip: {fileID: 8300000, guid: bcb32604285ba974899adfcfd31f6154, type: 3}
+    priority: 128
+    volume: 1
+    pitch: 1
+    loop: 0
   musics:
   - name: Music
     category: Music
@@ -30827,7 +30862,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1.5
+  m_text: 10.0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 122bdcbaf1cac9c41be3fb58017d4d56, type: 2}
   m_sharedMaterial: {fileID: 425939743043637930, guid: 122bdcbaf1cac9c41be3fb58017d4d56, type: 2}
@@ -30854,7 +30889,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35
+  m_fontSize: 24.4
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

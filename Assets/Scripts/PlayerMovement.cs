@@ -60,4 +60,14 @@ public class PlayerMovement : MonoBehaviour
     {
         transform.position += moveSpeed * Time.deltaTime * forwardDirection * transform.up;
     }
+
+    public void DisablePlayerMovement()
+    {
+
+    }
+
+    public void EnablePlayerMovement()
+    {
+
+    }
 }
