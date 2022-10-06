@@ -5,9 +5,17 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    [SerializeField] private GameObject explosionPs;
     private float damage;
+    private Vector3 positionToMoveTo;
 
-    public Vector3 positionToMoveTo;
+    private AudioManager audioManager;
+
+
+    private void Awake()
+    {
+        audioManager = FindObjectOfType<AudioManager>();
+    }
 
     public void Move(Vector3 direction, float bulletDistance, float bulletTime)
     {
@@ -33,5 +41,10 @@ public class Bullet : MonoBehaviour
             yield return null;
         }
         transform.position = targetPosition;
+        audioManager.PlaySFX("MissOrHit");
+        Instantiate(explosionPs, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
+
+    
 }
