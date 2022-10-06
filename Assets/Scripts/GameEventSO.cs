@@ -2,17 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameEventSO : MonoBehaviour
+[CreateAssetMenu(fileName = "GameEventSO", menuName = "game_ideas/GameEventSO", order = 0)]
+public class GameEventSO : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
+    private List<GameEventListener> listeners = new List<GameEventListener>();
+
+    public void Raise()
     {
-        
+        for (int i = listeners.Count - 1; i >= 0; i--)
+            listeners[i].OnEventRaised();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void RegisterListener(GameEventListener listener)
     {
-        
+        listeners.Add(listener);
+    }
+
+    public void UnregisterListener(GameEventListener listener)
+    {
+        listeners.Remove(listener);
     }
 }
