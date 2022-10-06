@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6647059140993046343}
   - component: {fileID: 6688282464033366534}
   - component: {fileID: 8442228878767399264}
+  - component: {fileID: 1468460993486222592}
   m_Layer: 0
   m_Name: CannonBallFrontal
   m_TagString: Untagged
@@ -210,3 +211,15 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &1468460993486222592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7553543027726402747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc54f2e04dd436f4db2b178aa627825f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

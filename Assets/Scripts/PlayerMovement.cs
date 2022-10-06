@@ -63,11 +63,11 @@ public class PlayerMovement : MonoBehaviour
 
     public void DisablePlayerMovement()
     {
-
+        inputActions.Player.Disable();
     }
 
     public void EnablePlayerMovement()
     {
-
+        inputActions.Player.Enable();
     }
 }
