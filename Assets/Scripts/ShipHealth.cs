@@ -9,6 +9,7 @@ public class ShipHealth : MonoBehaviour
     [SerializeField] private GameObject explosionPs;
     [SerializeField] private GameObject healthBarPrefab;
     [SerializeField] private Vector3 offset;
+    [SerializeField] private Sprite[] shipDeteriorationSprites;
 
     private int health;
     private Transform healthBar;
@@ -18,6 +19,7 @@ public class ShipHealth : MonoBehaviour
     private PlayerScoreManager playerScoreManager;
     private GameMaster gameMaster;
     private EnemySpawner enemySpawner;
+    private SpriteRenderer spriteRenderer;
 
     public Transform HealthBar { get => healthBar; }
 
@@ -26,6 +28,7 @@ public class ShipHealth : MonoBehaviour
         playerScoreManager = FindObjectOfType<PlayerScoreManager>();
         gameMaster = FindObjectOfType<GameMaster>();
         enemySpawner = FindObjectOfType<EnemySpawner>();
+        spriteRenderer = gameObject.transform.Find("Graphics").Find("Ship").GetComponent<SpriteRenderer>();
     }
 
     private void Start()
@@ -61,8 +64,28 @@ public class ShipHealth : MonoBehaviour
         {
             localScale.x = (float)health/ (float)initialHealth;
             fill.localScale = localScale;
+            DeteriorateSprite();
         }
     }
+
+    private void DeteriorateSprite()
+    {
+        var percentage = (float)health / (float)initialHealth;
+        if (percentage <= 0.3f)
+        {
+            spriteRenderer.sprite = shipDeteriorationSprites[2];
+        }
+        else if (percentage <= 0.6f)
+        {
+            spriteRenderer.sprite = shipDeteriorationSprites[1];
+        }
+    }
+
+    private void ResetSprite()
+    {
+        spriteRenderer.sprite = shipDeteriorationSprites[0];
+    }
+
 
     public void ResetHP()
     {
@@ -70,6 +93,7 @@ public class ShipHealth : MonoBehaviour
         var localScale = fill.localScale;
         localScale.x = 1;
         fill.localScale = localScale;
+        ResetSprite();
     }
 
     private void Die()
