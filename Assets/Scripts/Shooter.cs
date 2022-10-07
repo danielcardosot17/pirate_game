@@ -8,7 +8,7 @@ public class Shooter : Enemy, IEnemyAI
 {
 
     [SerializeField][Range(1f, 10f)] private float actionRadius = 5f;
-    [SerializeField][Range(10f, 100f)] private float rotationSpeed = 20;
+    [SerializeField][Range(0.1f, 3f)] private float rotationSpeed = 1f;
 
     [SerializeField][Range(1, 10)] private int frontalDamage = 5;
 
@@ -71,7 +71,7 @@ public class Shooter : Enemy, IEnemyAI
 
     private void LookAtPlayer()
     {
-        transform.up = distanceToPlayer.normalized;
+        transform.up = Vector3.RotateTowards(transform.up, distanceToPlayer.normalized, rotationSpeed * Time.deltaTime, 0.0f);
     }
 
     private void Update()

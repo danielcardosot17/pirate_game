@@ -51,9 +51,9 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void RotateShip(float rotationDirection)
+    private void RotateShip(float rotationMagnitude)
     {
-        transform.Rotate(rotationSpeed * Time.deltaTime * rotationDirection * -transform.forward);
+        transform.Rotate(rotationSpeed * Time.deltaTime * rotationMagnitude * -transform.forward);
     }
 
     private void MoveShipForward(float forwardDirection)
