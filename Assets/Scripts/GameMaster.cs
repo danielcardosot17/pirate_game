@@ -56,6 +56,7 @@ public class GameMaster : MonoBehaviour
     private void ResetPlayerPosition()
     {
         playerMovement.transform.position = Vector3.zero;
+        playerMovement.transform.rotation = Quaternion.identity;
     }
 
     public void EndGame()
