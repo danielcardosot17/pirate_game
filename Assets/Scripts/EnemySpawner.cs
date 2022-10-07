@@ -11,8 +11,8 @@ public class EnemySpawner : MonoBehaviour
     const float MAX_SPAWN_TIME = 10f;
 
     [SerializeField][Range(1f, 10f)] private float spawnTime = 5;
-    [SerializeField][Range(1, 10)] private int shooterSpawnCount = 3;
-    [SerializeField][Range(1, 10)] private int chaserSpawnCount = 3;
+    [SerializeField][Range(0, 10)] private int shooterSpawnCount = 3;
+    [SerializeField][Range(0, 10)] private int chaserSpawnCount = 3;
 
     [SerializeField] private Slider spawnTimeSlider;
     [SerializeField] private TMP_Text spawnNumberText;
@@ -112,21 +112,28 @@ public class EnemySpawner : MonoBehaviour
                 {
                     var shooter = Instantiate(shooterPrefab, spawnPoint.position, Quaternion.identity).GetComponent<Enemy>();
                     enemyList.Add(shooter);
+                    Debug.Log("Shooter!");
                     spawnedShooters++;
                 }
                 else if (spawnedChasers < chaserSpawnCount)
                 {
                     var chaser = Instantiate(chaserPrefab, spawnPoint.position, Quaternion.identity).GetComponent<Enemy>();
                     enemyList.Add(chaser);
+                    Debug.Log("Chaser!");
                     spawnedChasers++;
                 }
             }
         }
-        Debug.Log("Spawned Enemies!");
+        Debug.Log("Enemy List Count: " + enemyList.Count);
     }
 
     public void ResetSpawnerTimer()
     {
         timer = spawnTime;
+    }
+
+    public void RemoveEnemyFromList(Enemy enemy)
+    {
+        enemyList.Remove(enemy);
     }
 }

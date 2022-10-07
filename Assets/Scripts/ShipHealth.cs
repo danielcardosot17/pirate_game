@@ -17,6 +17,7 @@ public class ShipHealth : MonoBehaviour
 
     private PlayerScoreManager playerScoreManager;
     private GameMaster gameMaster;
+    private EnemySpawner enemySpawner;
 
     public Transform HealthBar { get => healthBar; }
 
@@ -24,6 +25,7 @@ public class ShipHealth : MonoBehaviour
     {
         playerScoreManager = FindObjectOfType<PlayerScoreManager>();
         gameMaster = FindObjectOfType<GameMaster>();
+        enemySpawner = FindObjectOfType<EnemySpawner>();
     }
 
     private void Start()
@@ -80,6 +82,7 @@ public class ShipHealth : MonoBehaviour
         {
             playerScoreManager.IncreaseScore();
             playerScoreManager.DisplayPlayerScore();
+            enemySpawner.RemoveEnemyFromList(gameObject.GetComponent<Enemy>());
             Instantiate(explosionPs, transform.position, Quaternion.identity);
             Destroy(healthBar.gameObject);
             Destroy(gameObject);
