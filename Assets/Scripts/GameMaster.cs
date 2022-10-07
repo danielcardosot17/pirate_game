@@ -65,6 +65,7 @@ public class GameMaster : MonoBehaviour
 
         enemySpawner.ClearEnemies();
 
+        menuManager.HideDuringGameCanvas();
         menuManager.ShowEndgameCanvas();
 
         playerScoreManager.DisplayPlayerScore();
