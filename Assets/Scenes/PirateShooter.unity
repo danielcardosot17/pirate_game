@@ -1961,6 +1961,11 @@ MonoBehaviour:
   sessionTimeSlider: {fileID: 1405300340}
   sessionNumberText: {fileID: 303388619}
   timerText: {fileID: 1177972280}
+--- !u!4 &473820344 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 247894961351179179, guid: a2232863f68a4b34d99a2e248bb953ad, type: 3}
+  m_PrefabInstance: {fileID: 247894961376133288}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &485015629
 GameObject:
   m_ObjectHideFlags: 0
@@ -43075,6 +43080,7 @@ MonoBehaviour:
   chaserSpawnCount: 3
   spawnTimeSlider: {fileID: 1628368626}
   spawnNumberText: {fileID: 1916913097}
+  spawnPoints: {fileID: 0}
 --- !u!1 &1405300338
 GameObject:
   m_ObjectHideFlags: 0
@@ -46872,6 +46878,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyShooter
       objectReference: {fileID: 0}
+    - target: {fileID: 247894959744918661, guid: a2232863f68a4b34d99a2e248bb953ad, type: 3}
+      propertyPath: bulletTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 247894959744918661, guid: a2232863f68a4b34d99a2e248bb953ad, type: 3}
+      propertyPath: actionRadius
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 247894959744918661, guid: a2232863f68a4b34d99a2e248bb953ad, type: 3}
+      propertyPath: frontalBullet
+      value: 
+      objectReference: {fileID: 7553543027726402747, guid: d0aa803276a9e864c979a147cdf2e247, type: 3}
+    - target: {fileID: 247894959744918661, guid: a2232863f68a4b34d99a2e248bb953ad, type: 3}
+      propertyPath: attackReloadTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 247894959744918661, guid: a2232863f68a4b34d99a2e248bb953ad, type: 3}
+      propertyPath: frontalSpawnPoint
+      value: 
+      objectReference: {fileID: 473820344}
     - target: {fileID: 247894959744918662, guid: a2232863f68a4b34d99a2e248bb953ad, type: 3}
       propertyPath: m_RootOrder
       value: 19
