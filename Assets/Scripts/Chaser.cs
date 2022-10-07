@@ -66,8 +66,11 @@ public class Chaser : Enemy, IEnemyAI
 
     private void MoveToPlayer()
     {
-        var forwardDirectionMagnitude = Vector3.Project(transform.up, distanceToPlayer).magnitude;
-        transform.position += moveSpeed * Time.deltaTime * forwardDirectionMagnitude * transform.up;
+        if(distanceToPlayer.magnitude <= followRadius)
+        {
+            var forwardDirectionMagnitude = Vector3.Project(transform.up, distanceToPlayer).magnitude;
+            transform.position += moveSpeed * Time.deltaTime * forwardDirectionMagnitude * transform.up;
+        }
     }
 
     private void LookAtPlayer()
