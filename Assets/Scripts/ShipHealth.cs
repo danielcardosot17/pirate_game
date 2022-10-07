@@ -18,6 +18,8 @@ public class ShipHealth : MonoBehaviour
     private PlayerScoreManager playerScoreManager;
     private GameMaster gameMaster;
 
+    public Transform HealthBar { get => healthBar; }
+
     private void Awake()
     {
         playerScoreManager = FindObjectOfType<PlayerScoreManager>();

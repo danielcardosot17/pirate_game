@@ -81,4 +81,11 @@ public class Shooter : Enemy, IEnemyAI
         Attack();
     }
 
+    void OnDrawGizmosSelected()
+    {
+        // Display the explosion radius when selected
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, actionRadius);
+        Gizmos.DrawWireSphere(transform.position, bulletDistance);
+    }
 }

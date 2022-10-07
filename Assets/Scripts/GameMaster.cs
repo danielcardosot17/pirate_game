@@ -40,6 +40,11 @@ public class GameMaster : MonoBehaviour
         ResetPlayerPosition();
         ResetPlayerHP();
 
+
+        enemySpawner.ResetSpawnerTimer();
+        enemySpawner.StartSpawner();
+        enemySpawner.SpawnEnemies();
+
         UnPauseGame();
     }
 
@@ -56,7 +61,11 @@ public class GameMaster : MonoBehaviour
     public void EndGame()
     {
         PauseGame();
+
+        enemySpawner.ClearEnemies();
+
         menuManager.ShowEndgameCanvas();
+
         playerScoreManager.DisplayPlayerScore();
     }
 
@@ -65,6 +74,7 @@ public class GameMaster : MonoBehaviour
         playerMovement.DisablePlayerMovement();
         playerAttack.DisablePlayerAttack();
         enemySpawner.DisableEnemyActions();
+        enemySpawner.PauseSpawner();
         sessionTimer.PauseTimer();
     }
     public void UnPauseGame()
@@ -73,6 +83,7 @@ public class GameMaster : MonoBehaviour
         playerAttack.EnablePlayerAttack();
         enemySpawner.EnableEnemyActions();
         sessionTimer.StartTimer();
+        enemySpawner.StartSpawner();
     }
 
 }

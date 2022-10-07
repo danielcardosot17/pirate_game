@@ -18,13 +18,40 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private TMP_Text spawnNumberText;
 
     [SerializeField] private Transform spawnPoints;
+
+    [SerializeField] private GameObject shooterPrefab;
+    [SerializeField] private GameObject chaserPrefab;
+
     private int maxEnemyCount;
 
     private float timer = 0.0f;
-    private bool isReady = true;
+    private bool isSpawning = false;
+
+    private List<Enemy> enemyList = new List<Enemy>();
 
 
+    private void Awake()
+    {
+        maxEnemyCount = 0;
+        foreach(Transform child in spawnPoints)
+        {
+            maxEnemyCount++;
+        }
+    }
 
+
+    private void Update()
+    {
+        if (isSpawning)
+        {
+            timer -= Time.deltaTime;
+            if (timer <= 0)
+            {
+                SpawnEnemies();
+                ResetSpawnerTimer();
+            }
+        }
+    }
 
     public void ChangeTime()
     {
@@ -37,11 +64,69 @@ public class EnemySpawner : MonoBehaviour
 
     public void DisableEnemyActions()
     {
-
+        foreach(Enemy enemy in enemyList)
+        {
+            enemy.enabled = false;
+        }
     }
 
     public void EnableEnemyActions()
     {
+        foreach (Enemy enemy in enemyList)
+        {
+            enemy.enabled = true;
+        }
+    }
 
+    public void ClearEnemies()
+    {
+        for(var i = enemyList.Count - 1; i >= 0; i--)
+        {
+            var enemy = enemyList[i];
+            enemyList.RemoveAt(i);
+            Destroy(enemy.gameObject.GetComponent<ShipHealth>().HealthBar.gameObject);
+            Destroy(enemy.gameObject);
+        }
+    }
+
+    public void StartSpawner()
+    {
+        isSpawning = true;
+    }
+    public void PauseSpawner()
+    {
+        isSpawning = false;
+    }
+
+    public void SpawnEnemies()
+    {
+        // shooters first
+        var spawnedShooters = 0;
+        var spawnedChasers = 0;
+        foreach(Transform spawnPoint in spawnPoints)
+        {
+            // will spawn if spawnpoint is 'free' (no colliders around radius of 2)
+            if (Physics2D.OverlapCircleAll(spawnPoint.position, 2).Length == 0)
+            {
+                if(spawnedShooters < shooterSpawnCount)
+                {
+                    var shooter = Instantiate(shooterPrefab, spawnPoint.position, Quaternion.identity).GetComponent<Enemy>();
+                    enemyList.Add(shooter);
+                    spawnedShooters++;
+                }
+                else if (spawnedChasers < chaserSpawnCount)
+                {
+                    var chaser = Instantiate(chaserPrefab, spawnPoint.position, Quaternion.identity).GetComponent<Enemy>();
+                    enemyList.Add(chaser);
+                    spawnedChasers++;
+                }
+            }
+        }
+        Debug.Log("Spawned Enemies!");
+    }
+
+    public void ResetSpawnerTimer()
+    {
+        timer = spawnTime;
     }
 }

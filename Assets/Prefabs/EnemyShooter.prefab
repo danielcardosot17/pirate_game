@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6a135e1c70b985468f3d7a182b575f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionRadius: 10
+  actionRadius: 7
   rotationSpeed: 0.5
   frontalDamage: 5
   bulletDistance: 5
