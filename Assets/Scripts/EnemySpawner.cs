@@ -17,7 +17,11 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private Slider spawnTimeSlider;
     [SerializeField] private TMP_Text spawnNumberText;
 
+    [SerializeField] private Transform spawnPoints;
+    private int maxEnemyCount;
 
+    private float timer = 0.0f;
+    private bool isReady = true;
 
 
 

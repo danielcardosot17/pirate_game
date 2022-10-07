@@ -2,17 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Chaser : MonoBehaviour
+public class Chaser : Enemy, IEnemyAI
 {
-    // Start is called before the first frame update
-    void Start()
+    public void Attack()
     {
-        
+        throw new System.NotImplementedException();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Move()
     {
-        
+        throw new System.NotImplementedException();
     }
 }
