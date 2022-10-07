@@ -6,12 +6,13 @@ using UnityEngine;
 public class Chaser : Enemy, IEnemyAI
 {
     [SerializeField][Range(1f, 10f)] private float followRadius = 10f;
-    [SerializeField][Range(1f, 5f)] private float explosionRadius = 3f;
+    [SerializeField][Range(0.1f, 3f)] private float explosionRadius = 1f;
 
-    [SerializeField][Range(0.5f, 10f)] private float moveSpeed = 7;
-    [SerializeField][Range(10f, 100f)] private float rotationSpeed = 20;
+    [SerializeField][Range(0.5f, 10f)] private float moveSpeed = 5;
+    [SerializeField][Range(0.1f, 3f)] private float rotationSpeed = 1f;
 
     [SerializeField][Range(1, 10)] private int damage = 5;
+    [SerializeField] private GameObject explosionPs;
 
     private AudioManager audioManager;
     private Transform player;
@@ -33,7 +34,9 @@ public class Chaser : Enemy, IEnemyAI
 
     private void Explode()
     {
-
+        audioManager.PlaySFX("MissOrHit");
+        Instantiate(explosionPs, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 
     public void Move()
@@ -43,6 +46,19 @@ public class Chaser : Enemy, IEnemyAI
 
     private void FollowPlayer()
     {
+        LookAtPlayer();
+        MoveToPlayer();
+    }
+
+    private void MoveToPlayer()
+    {
+        var forwardDirectionMagnitude = Vector3.Project(transform.up, distanceToPlayer).magnitude;
+        transform.position += moveSpeed * Time.deltaTime * forwardDirectionMagnitude * transform.up;
+    }
+
+    private void LookAtPlayer()
+    {
+        transform.up = Vector3.RotateTowards(transform.up, distanceToPlayer.normalized, rotationSpeed * Time.deltaTime, 0.0f);
     }
 
     private void Update()
@@ -50,5 +66,12 @@ public class Chaser : Enemy, IEnemyAI
         distanceToPlayer = (player.position - transform.position);
         Move();
         Attack();
+    }
+    void OnDrawGizmosSelected()
+    {
+        // Display the explosion radius when selected
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, explosionRadius);
+        Gizmos.DrawWireSphere(transform.position, followRadius);
     }
 }
