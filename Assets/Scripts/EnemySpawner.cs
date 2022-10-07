@@ -103,7 +103,48 @@ public class EnemySpawner : MonoBehaviour
         // shooters first
         var spawnedShooters = 0;
         var spawnedChasers = 0;
-        foreach(Transform spawnPoint in spawnPoints)
+
+        var shooterDesiredProportion = 0.5f;
+        if((chaserSpawnCount + shooterSpawnCount) == 0)
+        {
+            shooterDesiredProportion = 0.0f;
+        }
+        else
+        {
+            shooterDesiredProportion = (float) shooterSpawnCount / (float) (chaserSpawnCount + shooterSpawnCount);
+        }
+
+        var shootersOnScene = 0;
+        var chasersOnScene = 0;
+        var shooterOnSceneProportion = 0.5f;
+
+        foreach(Enemy enemy in enemyList)
+        {
+            if(enemy is Chaser)
+            {
+                chasersOnScene++;
+            }
+            if (enemy is Shooter)
+            {
+                shootersOnScene++;
+            }
+        }
+
+        if ((chasersOnScene + shootersOnScene) == 0)
+        {
+            shooterOnSceneProportion = 0.0f;
+        }
+        else
+        {
+            shooterOnSceneProportion = (float)shootersOnScene / (float)(chasersOnScene + shootersOnScene);
+        }
+
+        if(shooterOnSceneProportion > shooterDesiredProportion)
+        {
+            spawnedShooters = shooterSpawnCount;
+        }
+
+        foreach (Transform spawnPoint in spawnPoints)
         {
             // will spawn if spawnpoint is 'free' (no colliders around radius of 2)
             if (Physics2D.OverlapCircleAll(spawnPoint.position, 2).Length == 0)
