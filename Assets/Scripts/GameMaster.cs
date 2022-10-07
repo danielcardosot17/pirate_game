@@ -35,7 +35,22 @@ public class GameMaster : MonoBehaviour
         sessionTimer.SetTimerLength(sessionTimer.SessionTimeInSeconds);
         sessionTimer.StartTimer();
         playerScoreManager.ResetScore();
+        playerScoreManager.DisplayPlayerScore();
+
+        ResetPlayerPosition();
+        ResetPlayerHP();
+
         UnPauseGame();
+    }
+
+    private void ResetPlayerHP()
+    {
+        playerMovement.gameObject.GetComponent<ShipHealth>().ResetHP();
+    }
+
+    private void ResetPlayerPosition()
+    {
+        playerMovement.transform.position = Vector3.zero;
     }
 
     public void EndGame()

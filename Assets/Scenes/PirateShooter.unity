@@ -43566,6 +43566,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1010654319}
+  scoreRealtimeText: {fileID: 1196128272}
 --- !u!1 &1596662245
 GameObject:
   m_ObjectHideFlags: 0
@@ -47193,7 +47194,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 247894959744918659, guid: a2232863f68a4b34d99a2e248bb953ad, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 247894959744918661, guid: a2232863f68a4b34d99a2e248bb953ad, type: 3}
       propertyPath: bulletTime
@@ -47335,7 +47336,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4387452333293489280, guid: c6485e6dc991a884b81d04d9a2b169d7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.86
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4387452333293489280, guid: c6485e6dc991a884b81d04d9a2b169d7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -47386,6 +47387,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 9110691635223830006, guid: b8ba2ebb321ac7f48b1f5be16115f28a, type: 3}
+      propertyPath: initialHealth
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 9110691635223830007, guid: b8ba2ebb321ac7f48b1f5be16115f28a, type: 3}
       propertyPath: m_Name
       value: EnemyChaser

@@ -7,6 +7,7 @@ using UnityEngine;
 public class PlayerScoreManager : MonoBehaviour
 {
     [SerializeField] private TMP_Text scoreText;
+    [SerializeField] private TMP_Text scoreRealtimeText;
 
     private int score = 0;
 
@@ -23,5 +24,6 @@ public class PlayerScoreManager : MonoBehaviour
     public void DisplayPlayerScore()
     {
         scoreText.text = score.ToString("N0");
+        scoreRealtimeText.text = score.ToString("N0");
     }
 }

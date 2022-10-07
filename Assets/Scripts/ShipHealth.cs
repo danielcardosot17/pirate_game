@@ -15,6 +15,15 @@ public class ShipHealth : MonoBehaviour
     private Transform fill;
     private Vector3 offsetSprite;
 
+    private PlayerScoreManager playerScoreManager;
+    private GameMaster gameMaster;
+
+    private void Awake()
+    {
+        playerScoreManager = FindObjectOfType<PlayerScoreManager>();
+        gameMaster = FindObjectOfType<GameMaster>();
+    }
+
     private void Start()
     {
         health = initialHealth;
@@ -51,10 +60,27 @@ public class ShipHealth : MonoBehaviour
         }
     }
 
+    public void ResetHP()
+    {
+        health = initialHealth;
+        var localScale = fill.localScale;
+        localScale.x = 1;
+        fill.localScale = localScale;
+    }
+
     private void Die()
     {
-        Instantiate(explosionPs, transform.position, Quaternion.identity);
-        Destroy(healthBar.gameObject);
-        Destroy(gameObject);
+        if(gameObject.GetComponent<PlayerMovement>() != null) // is Player
+        {
+            gameMaster.EndGame();
+        }
+        else if (gameObject.GetComponent<Enemy>() != null) // is Enemy
+        {
+            playerScoreManager.IncreaseScore();
+            playerScoreManager.DisplayPlayerScore();
+            Instantiate(explosionPs, transform.position, Quaternion.identity);
+            Destroy(healthBar.gameObject);
+            Destroy(gameObject);
+        }
     }
 }

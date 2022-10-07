@@ -34,9 +34,23 @@ public class Chaser : Enemy, IEnemyAI
 
     private void Explode()
     {
+        DamageShipsAround();
         audioManager.PlaySFX("MissOrHit");
         Instantiate(explosionPs, transform.position, Quaternion.identity);
         Destroy(gameObject);
+    }
+
+    private void DamageShipsAround()
+    {
+        var colliders = Physics2D.OverlapCircleAll(transform.position, explosionRadius);
+        foreach(var collider in colliders)
+        {
+            if(collider.gameObject.GetComponent<ShipHealth>() != null)
+            {
+                var shipHealth = collider.gameObject.GetComponent<ShipHealth>();
+                shipHealth.TakeDamage(damage);
+            }
+        }
     }
 
     public void Move()

@@ -48,6 +48,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6a135e1c70b985468f3d7a182b575f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionRadius: 10
+  rotationSpeed: 0.5
+  frontalDamage: 5
+  bulletDistance: 5
+  bulletTime: 1
+  attackReloadTime: 3
+  frontalSpawnPoint: {fileID: 247894961351179179}
+  frontalBullet: {fileID: 7553543027726402747, guid: d0aa803276a9e864c979a147cdf2e247, type: 3}
 --- !u!114 &247894959744918660
 MonoBehaviour:
   m_ObjectHideFlags: 0
