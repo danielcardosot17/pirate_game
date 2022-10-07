@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ShipHealth : MonoBehaviour
 {
-    [SerializeField][Range(5,100)] private int initialHealth = 10;
+    [SerializeField][Range(1,100)] private int initialHealth = 10;
     [SerializeField] private GameObject explosionPs;
     [SerializeField] private GameObject healthBarPrefab;
     [SerializeField] private Vector3 offset;

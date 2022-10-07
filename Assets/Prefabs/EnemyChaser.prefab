@@ -79,11 +79,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db5bef9a8dc9ba24fa895c0ad7b4aa1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followRadius: 10
+  followRadius: 7
   explosionRadius: 1
-  moveSpeed: 3.2
+  moveSpeed: 2
   rotationSpeed: 1
-  damage: 5
+  damage: 3
   explosionPs: {fileID: 6143086751369115904, guid: e79903f2135d6d041be7f9256e18fe23, type: 3}
 --- !u!114 &9110691635223830006
 MonoBehaviour:
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13503e64696168c44885604322aeed0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialHealth: 5
+  initialHealth: 3
   explosionPs: {fileID: 6143086751369115904, guid: e79903f2135d6d041be7f9256e18fe23, type: 3}
   healthBarPrefab: {fileID: 600017588874810132, guid: c2b83e6f07fb00d4789cd3f88ea8a0f6, type: 3}
   offset: {x: 0, y: 0.8, z: 0}

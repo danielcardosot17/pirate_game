@@ -112,19 +112,16 @@ public class EnemySpawner : MonoBehaviour
                 {
                     var shooter = Instantiate(shooterPrefab, spawnPoint.position, Quaternion.identity).GetComponent<Enemy>();
                     enemyList.Add(shooter);
-                    Debug.Log("Shooter!");
                     spawnedShooters++;
                 }
                 else if (spawnedChasers < chaserSpawnCount)
                 {
                     var chaser = Instantiate(chaserPrefab, spawnPoint.position, Quaternion.identity).GetComponent<Enemy>();
                     enemyList.Add(chaser);
-                    Debug.Log("Chaser!");
                     spawnedChasers++;
                 }
             }
         }
-        Debug.Log("Enemy List Count: " + enemyList.Count);
     }
 
     public void ResetSpawnerTimer()
